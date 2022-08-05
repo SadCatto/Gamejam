@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Tortoise.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Rabbit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/CEILING.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.4638, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 287.5 )
+
+[node name="Main scene" type="Node2D"]
+
+[node name="Tortoise" parent="." instance=ExtResource( 1 )]
+position = Vector2( 116, 95 )
+
+[node name="Rabbit" parent="." instance=ExtResource( 2 )]
+position = Vector2( 272, 518 )
+
+[node name="CEILING" parent="." instance=ExtResource( 3 )]
+position = Vector2( 16, 2 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( -330, 561 )
+scale = Vector2( 20.7, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+margin_left = 15.0
+margin_right = 56.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 35.5362, 20 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="leftBound" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -7, 278 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="rightBound" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 806, 281 )
+shape = SubResource( 2 )
