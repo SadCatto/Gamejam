@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Tortoise.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/bloodParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/spikeTortoise.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.5455, 20 )
+extents = Vector2( 75.5, 79.5 )
 
 [node name="Tortoise" type="KinematicBody2D"]
 position = Vector2( 32, 24 )
-scale = Vector2( 2.2, 2.1 )
 script = ExtResource( 1 )
+speed = Vector2( 500, 800 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -9.53674e-07
-margin_top = 9.53674e-07
-margin_right = 39.0
-margin_bottom = 40.0
-color = Color( 0.360784, 0.662745, 0.0862745, 1 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 15, 5 )
+rotation = 3.14159
+scale = Vector2( 0.12, 0.13 )
+texture = ExtResource( 3 )
+
+[node name="bloodParticles" parent="." instance=ExtResource( 2 )]
+position = Vector2( 20, 51.4286 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 19.5455, 20 )
+position = Vector2( 23, 46.5 )
 shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 18, 132 )

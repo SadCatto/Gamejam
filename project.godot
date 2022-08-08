@@ -14,9 +14,16 @@ config/name="Gamejam"
 run/main_scene="res://Scenes/Main scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+
 [display]
 
-window/size/width=800
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 
