@@ -24,17 +24,19 @@ func _process(delta):
 		Globals.rabbitCount += 1
 
 func addParticles(particlePosition: Vector2):
-	$shakeCamera.add_trauma(0.4)
+	$shakeCamera.add_trauma(0.5)
 	var parInstance = particles.instance()
 	parInstance.position = particlePosition
 	add_child(parInstance)
 	parInstance.emitting = true
+	$Score.updateScore(Globals.score)
 	
 func tortoiseDead():
 	$tryAgainUi.visible = true
 
 func cleanUp():
 	Globals.score = 0
+	$Score.updateScore(Globals.score)
 	var deadPart1 = get_tree().get_root().get_node("tortoiseDead1")
 	var deadPart2 = get_tree().get_root().get_node("tortoiseDead2")
 	deadPart1.queue_free()
